@@ -1,9 +1,9 @@
 {
  "speed_ms": {
-  "ticket_page_db": 0.236,
-  "ticket_page_cache": 0.153,
-  "dashboard_db": 17.33,
-  "dashboard_cache": 0.188
+  "ticket_page_db": 0.198,
+  "ticket_page_cache": 0.147,
+  "dashboard_db": 16.78,
+  "dashboard_cache": 0.169
  },
  "stale_no_invalidation": {
   "cached_priority": "normal",
@@ -39,9 +39,9 @@
   },
   "allkeys-lru": {
    "written": 20000,
-   "keys_left": 5981,
+   "keys_left": 5979,
    "error": null,
-   "evicted": 14068
+   "evicted": 14070
   }
  }
 }
