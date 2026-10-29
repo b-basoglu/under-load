@@ -1,0 +1,114 @@
+{
+  "passed": 18,
+  "total": 18,
+  "checks": [
+    {
+      "name": "PG Read Committed: original Take ticket code",
+      "claim": "both reads see NULL, no error, final assignee = B (A's write lost)",
+      "observed": "reads=None,None error=None final=B",
+      "ok": true
+    },
+    {
+      "name": "PG Repeatable Read: original code",
+      "claim": "B's UPDATE fails with 40001 'could not serialize access due to concurrent update', final = A",
+      "observed": "error=40001: could not serialize access due to concurrent update final=A",
+      "ok": true
+    },
+    {
+      "name": "PG Serializable: original code",
+      "claim": "B fails with 40001, final = A",
+      "observed": "error=40001: could not serialize access due to concurrent update final=A",
+      "ok": true
+    },
+    {
+      "name": "PG fix 1: atomic UPDATE ... AND assignee_id IS NULL (Read Committed)",
+      "claim": "B waits for A's lock, then re-checks the WHERE and updates 0 rows; final = A",
+      "observed": "A rows=1 B blocked=True B rows=0 final=A",
+      "ok": true
+    },
+    {
+      "name": "PG fix 2: SELECT ... FOR UPDATE",
+      "claim": "B's locking read waits, then sees the new value A",
+      "observed": "B blocked=True B saw=A",
+      "ok": true
+    },
+    {
+      "name": "PG fix 3: version check",
+      "claim": "the second writer (stale version 7) updates 0 rows",
+      "observed": "A rows=1 B rows=0 final=A",
+      "ok": true
+    },
+    {
+      "name": "PG seat limit at READ COMMITTED",
+      "claim": "both count 49, both commit \u2192 51 agents",
+      "observed": "counts=49,49 errors=[] total=51",
+      "ok": true
+    },
+    {
+      "name": "PG seat limit at REPEATABLE READ",
+      "claim": "both count 49, both commit \u2192 51 agents",
+      "observed": "counts=49,49 errors=[] total=51",
+      "ok": true
+    },
+    {
+      "name": "PG seat limit at SERIALIZABLE",
+      "claim": "one transaction fails with 40001 \u2192 50 agents",
+      "observed": "counts=49,49 errors=['40001'] total=50",
+      "ok": true
+    },
+    {
+      "name": "PG seat fix: lock the workspace row",
+      "claim": "admin 2 waits, then counts 50 and can refuse",
+      "observed": "admin1 count=49 admin2 blocked=True admin2 count=50",
+      "ok": true
+    },
+    {
+      "name": "PG seat fix: counter + CHECK (seats_used <= seat_limit)",
+      "claim": "second increment waits, then fails the CHECK (23514)",
+      "observed": "blocked=True error=23514",
+      "ok": true
+    },
+    {
+      "name": "PG Read Uncommitted: dirty read?",
+      "claim": "PostgreSQL never shows uncommitted data (sees NULL)",
+      "observed": "saw=None",
+      "ok": true
+    },
+    {
+      "name": "PG READ COMMITTED: non-repeatable + phantom",
+      "claim": "both anomalies visible",
+      "observed": "priority normal\u2192urgent, open count 1\u21922",
+      "ok": true
+    },
+    {
+      "name": "PG REPEATABLE READ: non-repeatable + phantom",
+      "claim": "neither visible (snapshot) \u2014 RR prevents phantoms too",
+      "observed": "priority normal\u2192normal, open count 1\u21921",
+      "ok": true
+    },
+    {
+      "name": "MySQL default isolation",
+      "claim": "REPEATABLE-READ",
+      "observed": "REPEATABLE-READ",
+      "ok": true
+    },
+    {
+      "name": "MySQL Repeatable Read (default): original code",
+      "claim": "B's snapshot still says NULL, B's UPDATE succeeds with no error, final = B (lost update)",
+      "observed": "B re-read after A's commit=None error=None final=B",
+      "ok": true
+    },
+    {
+      "name": "MySQL fix 1: atomic UPDATE ... AND assignee_id IS NULL",
+      "claim": "B waits, then updates 0 rows; final = A",
+      "observed": "A rows=1 B blocked=True B rows=0 final=A",
+      "ok": true
+    },
+    {
+      "name": "MySQL Read Uncommitted: dirty read",
+      "claim": "B sees A's uncommitted value",
+      "observed": "saw=admin-bulk",
+      "ok": true
+    }
+  ]
+}

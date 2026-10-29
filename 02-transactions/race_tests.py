@@ -1,17 +1,22 @@
 """Replays the concurrency scenarios from Part 2 against real PostgreSQL and MySQL,
 interleaving two connections step by step."""
+import json
 import threading
 import time
+from pathlib import Path
 
 import psycopg
 import pymysql
 
 results = []
+observed_rows = []
 
 
 def report(name, claim, observed, ok):
     results.append((name, ok))
+    observed_rows.append({"name": name, "claim": claim, "observed": observed, "ok": ok})
     print(f"[{'PASS' if ok else 'FAIL'}] {name}\n       claim:    {claim}\n       observed: {observed}\n")
+
 
 
 # ---------------------------------------------------------------- PostgreSQL
@@ -298,4 +303,8 @@ def my_tests():
 if __name__ == "__main__":
     pg_tests()
     my_tests()
-    print(f"{sum(ok for _, ok in results)}/{len(results)} passed")
+    passed = sum(ok for _, ok in results)
+    out = {"passed": passed, "total": len(results), "checks": observed_rows}
+    Path(__file__).with_name("race_results.json").write_text(json.dumps(out, indent=2))
+    print(f"{passed}/{len(results)} passed")
+
