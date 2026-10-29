@@ -1,0 +1,84 @@
+{
+  "passed": 13,
+  "total": 13,
+  "checks": [
+    {
+      "name": "PG READ COMMITTED: two admins step down at once",
+      "claim": "both see 2 admins, each updates only their own row, both commit \u2192 0 admins",
+      "observed": "each saw 2,2 admins; errors=[]; admins left=0",
+      "ok": true
+    },
+    {
+      "name": "PG REPEATABLE READ: two admins step down at once",
+      "claim": "both see 2 admins, each updates only their own row, both commit \u2192 0 admins",
+      "observed": "each saw 2,2 admins; errors=[]; admins left=0",
+      "ok": true
+    },
+    {
+      "name": "PG SERIALIZABLE: two admins step down at once",
+      "claim": "one transaction is aborted with 40001 \u2192 1 admin left",
+      "observed": "errors=['40001']; admins left=1",
+      "ok": true
+    },
+    {
+      "name": "PG fix: SELECT ... FOR UPDATE on the admin rows",
+      "claim": "Omar's check waits for Maya, then sees only 1 admin and refuses",
+      "observed": "Maya saw 2; Omar blocked=True, then saw ['omar']; admins left=1",
+      "ok": true
+    },
+    {
+      "name": "PG fix: admin_count counter with CHECK (admin_count >= 1)",
+      "claim": "the second decrement waits on the workspace row, then fails the CHECK (23514)",
+      "observed": "blocked=True error=23514 admins left=1",
+      "ok": true
+    },
+    {
+      "name": "PG REPEATABLE READ: two leads assign different tickets to an agent at 24/25",
+      "claim": "both see 24, both commit \u2192 26 open tickets",
+      "observed": "saw 24,24 \u2192 26",
+      "ok": true
+    },
+    {
+      "name": "PG: FOR UPDATE on the agent's existing tickets vs a newly assigned one",
+      "claim": "Lead 2 waits, but its re-check doesn't see the ticket Lead 1 just added (24, not 25)",
+      "observed": "Lead 1 locked 24 rows; Lead 2 blocked=True, then counted 24",
+      "ok": true
+    },
+    {
+      "name": "PG fix: lock the agent row first, then count",
+      "claim": "Lead 2 waits on the agent row, then counts 25 and refuses",
+      "observed": "Lead 1 counted 24; Lead 2 blocked=True, then counted 25",
+      "ok": true
+    },
+    {
+      "name": "PG fix: EXCLUDE constraint on overlapping shifts",
+      "claim": "the overlapping insert waits, then fails with 23P01 (exclusion_violation)",
+      "observed": "blocked=True error=23P01",
+      "ok": true
+    },
+    {
+      "name": "MySQL REPEATABLE READ (default): two admins step down at once",
+      "claim": "both see 2 admins, both commit \u2192 0 admins",
+      "observed": "saw 2,2; errors={}; admins left=0",
+      "ok": true
+    },
+    {
+      "name": "MySQL SERIALIZABLE: two admins step down at once",
+      "claim": "plain reads take shared locks, so the two updates deadlock and one is killed (1213) \u2192 1 admin",
+      "observed": "errors={'b': 1213}; admins left=1",
+      "ok": true
+    },
+    {
+      "name": "MySQL: FOR UPDATE on the agent's existing tickets vs a newly assigned one",
+      "claim": "Lead 2 waits, and its locking read sees the new ticket (25) \u2014 InnoDB locks the index range",
+      "observed": "Lead 1 locked 24 rows; Lead 2 blocked=True, then counted 25",
+      "ok": true
+    },
+    {
+      "name": "Next-key locks: a new row enters the range Lead 1 locked with FOR UPDATE",
+      "claim": "MySQL blocks the insert into the locked index range (gap lock); PostgreSQL doesn't lock ranges",
+      "observed": "MySQL: error 1205 after 3.03 s (plan uses key assignee_id) \u00b7 PostgreSQL: assigned after 0.0 s",
+      "ok": true
+    }
+  ]
+}
