@@ -70,17 +70,17 @@ Limit (actual rows=50 loops=1)
 -- Halcyon workspace filter alone
 SELECT count(*) FROM tickets WHERE workspace_id = 7 AND priority = 1
 Finalize Aggregate (actual rows=1 loops=1)
-  Buffers: shared hit=16182 read=83732 written=5
+  Buffers: shared hit=16183 read=83731 written=7
   ->  Gather (actual rows=3 loops=1)
         Workers Planned: 2
         Workers Launched: 2
-        Buffers: shared hit=16182 read=83732 written=5
+        Buffers: shared hit=16183 read=83731 written=7
         ->  Partial Aggregate (actual rows=1 loops=3)
-              Buffers: shared hit=16182 read=83732 written=5
+              Buffers: shared hit=16183 read=83731 written=7
               ->  Parallel Seq Scan on tickets (actual rows=250024 loops=3)
                     Filter: ((workspace_id = 7) AND (priority = 1))
                     Rows Removed by Filter: 1416643
-                    Buffers: shared hit=16182 read=83732 written=5
+                    Buffers: shared hit=16183 read=83731 written=7
 
 -- My Queue as a generic prepared plan
 EXECUTE gq(7, 100005)
@@ -129,15 +129,15 @@ Limit (actual rows=50 loops=1)
         Workers Planned: 2
         Workers Launched: 2
         Buffers: shared hit=12 read=23894
-        ->  Sort (actual rows=40 loops=3)
+        ->  Sort (actual rows=39 loops=3)
               Sort Key: updated_at DESC
               Sort Method: top-N heapsort  Memory: 34kB
               Buffers: shared hit=12 read=23894
-              Worker 0:  Sort Method: top-N heapsort  Memory: 33kB
-              Worker 1:  Sort Method: top-N heapsort  Memory: 34kB
+              Worker 0:  Sort Method: top-N heapsort  Memory: 34kB
+              Worker 1:  Sort Method: top-N heapsort  Memory: 35kB
               ->  Parallel Bitmap Heap Scan on tickets (actual rows=10030 loops=3)
                     Recheck Cond: ((workspace_id = 7) AND (state <> 'closed'::text))
-                    Heap Blocks: exact=10254
+                    Heap Blocks: exact=10422
                     Buffers: shared read=23890
                     ->  Bitmap Index Scan on tickets_my_queue_idx (actual rows=30090 loops=1)
                           Index Cond: (workspace_id = 7)
@@ -155,19 +155,19 @@ Aggregate (actual rows=1 loops=1)
 -- state passed as a parameter, generic plan
 EXECUTE pq(7, 100005, 'closed')
 Limit (actual rows=50 loops=1)
-  Buffers: shared hit=12469 read=87445
+  Buffers: shared hit=12453 read=87461
   ->  Sort (actual rows=50 loops=1)
         Sort Key: updated_at DESC
         Sort Method: top-N heapsort  Memory: 34kB
-        Buffers: shared hit=12469 read=87445
+        Buffers: shared hit=12453 read=87461
         ->  Gather (actual rows=147 loops=1)
               Workers Planned: 2
               Workers Launched: 2
-              Buffers: shared hit=12469 read=87445
+              Buffers: shared hit=12453 read=87461
               ->  Parallel Seq Scan on tickets (actual rows=49 loops=3)
                     Filter: ((state <> $3) AND (workspace_id = $1) AND (assignee_id = $2))
                     Rows Removed by Filter: 1666618
-                    Buffers: shared hit=12469 read=87445
+                    Buffers: shared hit=12453 read=87461
 
 -- lead export without INCLUDE
 SELECT subject, priority FROM tickets WHERE workspace_id = 7 AND state <> 'closed'
@@ -229,18 +229,18 @@ Nested Loop (actual rows=0 loops=1)
 -- date_trunc: can't seek
 SELECT count(*) FROM tickets WHERE date_trunc('day', created_at) = '2025-06-01'
 Finalize Aggregate (actual rows=1 loops=1)
-  Buffers: shared hit=3375775
+  Buffers: shared hit=3375772
   ->  Gather (actual rows=3 loops=1)
         Workers Planned: 2
         Workers Launched: 2
-        Buffers: shared hit=3375775
+        Buffers: shared hit=3375772
         ->  Partial Aggregate (actual rows=1 loops=3)
-              Buffers: shared hit=3375775
+              Buffers: shared hit=3375772
               ->  Parallel Index Only Scan using tickets_created_idx on tickets (actual rows=2403 loops=3)
                     Filter: (date_trunc('day'::text, created_at) = '2025-06-01 00:00:00+00'::timestamp with time zone)
                     Rows Removed by Filter: 1664264
                     Heap Fetches: 24
-                    Buffers: shared hit=3375775
+                    Buffers: shared hit=3375772
 
 -- date_trunc: can seek
 SELECT count(*) FROM tickets WHERE created_at >= '2025-06-01' AND created_at < '2025-06-02'
@@ -254,21 +254,21 @@ Aggregate (actual rows=1 loops=1)
 -- coalesce: can't seek
 SELECT id FROM tickets WHERE workspace_id = 1003 AND COALESCE(assignee_id, 0) = 0 ORDER BY created_at LIMIT 50
 Limit (actual rows=50 loops=1)
-  Buffers: shared hit=2646 read=97382
+  Buffers: shared hit=2638 read=97390
   ->  Gather Merge (actual rows=50 loops=1)
         Workers Planned: 2
         Workers Launched: 2
-        Buffers: shared hit=2646 read=97382
+        Buffers: shared hit=2638 read=97390
         ->  Sort (actual rows=26 loops=3)
               Sort Key: created_at
               Sort Method: quicksort  Memory: 26kB
-              Buffers: shared hit=2646 read=97382
+              Buffers: shared hit=2638 read=97390
               Worker 0:  Sort Method: quicksort  Memory: 26kB
               Worker 1:  Sort Method: quicksort  Memory: 26kB
               ->  Parallel Seq Scan on tickets (actual rows=31 loops=3)
                     Filter: ((workspace_id = 1003) AND (COALESCE(assignee_id, 0) = 0))
                     Rows Removed by Filter: 1666636
-                    Buffers: shared hit=2532 read=97382
+                    Buffers: shared hit=2524 read=97390
 
 -- coalesce: can seek
 SELECT id FROM tickets WHERE workspace_id = 1003 AND assignee_id IS NULL ORDER BY created_at LIMIT 50
@@ -283,11 +283,11 @@ SELECT * FROM tickets WHERE id = 3481213.0
 Gather (actual rows=1 loops=1)
   Workers Planned: 2
   Workers Launched: 2
-  Buffers: shared hit=3158 read=96756
+  Buffers: shared hit=3146 read=96768
   ->  Parallel Seq Scan on tickets (actual rows=0 loops=3)
         Filter: ((id)::numeric = 3481213.0)
         Rows Removed by Filter: 1666666
-        Buffers: shared hit=3158 read=96756
+        Buffers: shared hit=3146 read=96768
 
 -- type mismatch: can seek
 SELECT * FROM tickets WHERE id = 3481213
@@ -300,11 +300,11 @@ SELECT id FROM tickets WHERE workspace_id = 1003 AND metadata->>'channel' = 'api
 Gather (actual rows=22 loops=1)
   Workers Planned: 2
   Workers Launched: 2
-  Buffers: shared hit=3735 read=96179
+  Buffers: shared hit=3723 read=96191
   ->  Parallel Seq Scan on tickets (actual rows=7 loops=3)
         Filter: ((workspace_id = 1003) AND ((metadata ->> 'channel'::text) = 'api'::text))
         Rows Removed by Filter: 1666659
-        Buffers: shared hit=3735 read=96179
+        Buffers: shared hit=3723 read=96191
 
 -- json: can seek
 SELECT id FROM tickets WHERE workspace_id = 1003 AND metadata->>'channel' = 'api'
@@ -315,17 +315,17 @@ Index Scan using tickets_channel_idx on tickets (actual rows=22 loops=1)
 -- contains: can't seek
 SELECT count(*) FROM tickets WHERE subject ILIKE '%chargeback%'
 Finalize Aggregate (actual rows=1 loops=1)
-  Buffers: shared hit=4653 read=95261
+  Buffers: shared hit=4641 read=95273
   ->  Gather (actual rows=3 loops=1)
         Workers Planned: 2
         Workers Launched: 2
-        Buffers: shared hit=4653 read=95261
+        Buffers: shared hit=4641 read=95273
         ->  Partial Aggregate (actual rows=1 loops=3)
-              Buffers: shared hit=4653 read=95261
+              Buffers: shared hit=4641 read=95273
               ->  Parallel Seq Scan on tickets (actual rows=1636 loops=3)
                     Filter: (subject ~~* '%chargeback%'::text)
                     Rows Removed by Filter: 1665031
-                    Buffers: shared hit=4653 read=95261
+                    Buffers: shared hit=4641 read=95273
 
 -- contains: can seek
 SELECT count(*) FROM tickets WHERE subject ILIKE '%chargeback%'
@@ -344,15 +344,15 @@ Planning:
 -- or_vs_union: can't seek
 SELECT id, updated_at FROM tickets WHERE assignee_id = 100005 OR requester_id = 4242 ORDER BY updated_at DESC LIMIT 50
 Limit (actual rows=50 loops=1)
-  Buffers: shared hit=12185 read=577 written=4
+  Buffers: shared hit=12185 read=577 written=5
   ->  Sort (actual rows=50 loops=1)
         Sort Key: updated_at DESC
         Sort Method: top-N heapsort  Memory: 28kB
-        Buffers: shared hit=12185 read=577 written=4
+        Buffers: shared hit=12185 read=577 written=5
         ->  Bitmap Heap Scan on tickets (actual rows=14291 loops=1)
               Recheck Cond: ((assignee_id = 100005) OR (requester_id = 4242))
               Heap Blocks: exact=12744
-              Buffers: shared hit=12185 read=577 written=4
+              Buffers: shared hit=12185 read=577 written=5
               ->  BitmapOr (actual rows=0 loops=1)
                     Buffers: shared hit=18
                     ->  Bitmap Index Scan on tickets_assignee_idx (actual rows=14284 loops=1)
