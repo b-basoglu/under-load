@@ -1,0 +1,47 @@
+{
+ "speed_ms": {
+  "ticket_page_db": 0.236,
+  "ticket_page_cache": 0.153,
+  "dashboard_db": 17.33,
+  "dashboard_cache": 0.188
+ },
+ "stale_no_invalidation": {
+  "cached_priority": "normal",
+  "db_priority": "urgent",
+  "ttl_left_s": 300
+ },
+ "race_update_on_write": {
+  "cache": "high",
+  "db": "urgent"
+ },
+ "race_delete_on_write": {
+  "cache": "normal",
+  "db": "urgent",
+  "ttl_left_s": 300
+ },
+ "versioned_fix": {
+  "race1_cache": "urgent",
+  "race1_late_write_accepted": false,
+  "race2_stale_rejected": true,
+  "race2_cache": "urgent"
+ },
+ "negative_caching": {
+  "db_queries_without": 1000,
+  "db_queries_with": 50,
+  "created_but_cached_as": "null"
+ },
+ "eviction": {
+  "noeviction": {
+   "written": 5687,
+   "keys_left": 5687,
+   "error": "command not allowed when used memory > 'maxmemory'",
+   "evicted": 0
+  },
+  "allkeys-lru": {
+   "written": 20000,
+   "keys_left": 5981,
+   "error": null,
+   "evicted": 14068
+  }
+ }
+}

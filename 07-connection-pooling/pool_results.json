@@ -1,0 +1,98 @@
+{
+ "connect_cost_ms": {
+  "new_connection_per_query": 5.83,
+  "reused_connection": 0.3,
+  "backend_memory_one_idle_session": "1303 kB"
+ },
+ "max_connections": {
+  "opened": 100,
+  "error": [
+   null,
+   "sorry, too many clients already"
+  ]
+ },
+ "throughput_vs_connections": [
+  {
+   "connections": 1,
+   "queries_per_s": 41.6,
+   "median_ms": 23,
+   "p99_ms": 26
+  },
+  {
+   "connections": 2,
+   "queries_per_s": 82.0,
+   "median_ms": 24,
+   "p99_ms": 26
+  },
+  {
+   "connections": 4,
+   "queries_per_s": 75.6,
+   "median_ms": 72,
+   "p99_ms": 82
+  },
+  {
+   "connections": 8,
+   "queries_per_s": 54.0,
+   "median_ms": 133,
+   "p99_ms": 199
+  },
+  {
+   "connections": 16,
+   "queries_per_s": 39.0,
+   "median_ms": 392,
+   "p99_ms": 705
+  },
+  {
+   "connections": 32,
+   "queries_per_s": 39.6,
+   "median_ms": 700,
+   "p99_ms": 2504
+  },
+  {
+   "connections": 64,
+   "queries_per_s": 42.2,
+   "median_ms": 1408,
+   "p99_ms": 4302
+  }
+ ],
+ "pool_exhaustion": {
+  "outcomes_while_busy": [
+   [
+    "timeout",
+    1.0
+   ],
+   [
+    "timeout",
+    1.0
+   ],
+   [
+    "timeout",
+    1.0
+   ],
+   [
+    "timeout",
+    1.0
+   ],
+   [
+    "timeout",
+    1.01
+   ]
+  ],
+  "ms_after_slow_queries_finish": 1.6,
+  "pool_stats_while_busy": {
+   "pool_size": 10,
+   "pool_available": 0,
+   "requests_waiting": 0
+  }
+ },
+ "pgbouncer": {
+  "client_connections": 200,
+  "server_connections_seen": 20,
+  "queries": 39958,
+  "errors": []
+ },
+ "pgbouncer_session_state": [
+  "0",
+  "1234ms"
+ ]
+}

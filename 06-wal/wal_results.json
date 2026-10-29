@@ -1,0 +1,94 @@
+{
+ "crash_recovery_log": [
+  "database system is ready to accept connections",
+  "database system is ready to accept connections",
+  "database system was not properly shut down; automatic recovery in progress",
+  "redo starts at 0/14EF8B0",
+  "redo done at 0/1523840 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s",
+  "database system is ready to accept connections"
+ ],
+ "sync_commit_on": {
+  "acknowledged": 14687,
+  "present_after_crash": 14687,
+  "lost": 0
+ },
+ "sync_commit_off": {
+  "acknowledged": 20238,
+  "present_after_crash": 19876,
+  "lost": 362
+ },
+ "commit_bench": [
+  {
+   "mode": "on",
+   "clients": 1,
+   "commits_per_s": 4664,
+   "avg_commit_ms": 0.21,
+   "wal_syncs": 18655,
+   "commits_per_sync": 1.0
+  },
+  {
+   "mode": "off",
+   "clients": 1,
+   "commits_per_s": 7017,
+   "avg_commit_ms": 0.14,
+   "wal_syncs": 21,
+   "commits_per_sync": 1336.5
+  },
+  {
+   "mode": "on",
+   "clients": 8,
+   "commits_per_s": 13026,
+   "avg_commit_ms": 0.61,
+   "wal_syncs": 17985,
+   "commits_per_sync": 2.9
+  },
+  {
+   "mode": "on",
+   "clients": 32,
+   "commits_per_s": 10178,
+   "avg_commit_ms": 3.14,
+   "wal_syncs": 13263,
+   "commits_per_sync": 3.1
+  }
+ ],
+ "full_page_write_bytes": {
+  "first_update_after_checkpoint": 19272,
+  "second_update": 192
+ },
+ "recovery": {
+  "checkpoint just before crash": {
+   "wal_mb_generated": 698,
+   "redo_seconds": 0.0,
+   "restart_seconds": 0.6
+  },
+  "~700 MB of WAL since checkpoint": {
+   "wal_mb_generated": 698,
+   "redo_seconds": 1.11,
+   "restart_seconds": 1.7
+  }
+ },
+ "slot": {
+  "growth": [
+   [
+    "reserved",
+    "23 MB"
+   ],
+   [
+    "reserved",
+    "46 MB"
+   ],
+   [
+    "reserved",
+    "68 MB"
+   ],
+   [
+    "unreserved",
+    "91 MB"
+   ]
+  ],
+  "final": [
+   "lost",
+   "wal_removed"
+  ]
+ }
+}

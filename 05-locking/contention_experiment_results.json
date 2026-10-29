@@ -1,0 +1,218 @@
+[
+ {
+  "strategy": "atomic",
+  "workers": 1,
+  "hot": true,
+  "ops_per_s": 189,
+  "retries_per_op": 0.0,
+  "p99_ms": 6.6,
+  "lost_updates": 0
+ },
+ {
+  "strategy": "pessimistic",
+  "workers": 1,
+  "hot": true,
+  "ops_per_s": 155,
+  "retries_per_op": 0.0,
+  "p99_ms": 8.5,
+  "lost_updates": 0
+ },
+ {
+  "strategy": "optimistic",
+  "workers": 1,
+  "hot": true,
+  "ops_per_s": 162,
+  "retries_per_op": 0.0,
+  "p99_ms": 8.9,
+  "lost_updates": 0
+ },
+ {
+  "strategy": "atomic",
+  "workers": 4,
+  "hot": true,
+  "ops_per_s": 838,
+  "retries_per_op": 0.0,
+  "p99_ms": 6.9,
+  "lost_updates": 0
+ },
+ {
+  "strategy": "pessimistic",
+  "workers": 4,
+  "hot": true,
+  "ops_per_s": 173,
+  "retries_per_op": 0.0,
+  "p99_ms": 36.5,
+  "lost_updates": 0
+ },
+ {
+  "strategy": "optimistic",
+  "workers": 4,
+  "hot": true,
+  "ops_per_s": 193,
+  "retries_per_op": 2.99,
+  "p99_ms": 157.5,
+  "lost_updates": 0
+ },
+ {
+  "strategy": "atomic",
+  "workers": 16,
+  "hot": true,
+  "ops_per_s": 3769,
+  "retries_per_op": 0.0,
+  "p99_ms": 6.6,
+  "lost_updates": 0
+ },
+ {
+  "strategy": "pessimistic",
+  "workers": 16,
+  "hot": true,
+  "ops_per_s": 186,
+  "retries_per_op": 0.0,
+  "p99_ms": 113.3,
+  "lost_updates": 0
+ },
+ {
+  "strategy": "optimistic",
+  "workers": 16,
+  "hot": true,
+  "ops_per_s": 232,
+  "retries_per_op": 13.77,
+  "p99_ms": 453.7,
+  "lost_updates": 0
+ },
+ {
+  "strategy": "atomic",
+  "workers": 32,
+  "hot": true,
+  "ops_per_s": 4460,
+  "retries_per_op": 0.0,
+  "p99_ms": 20.5,
+  "lost_updates": 0
+ },
+ {
+  "strategy": "pessimistic",
+  "workers": 32,
+  "hot": true,
+  "ops_per_s": 198,
+  "retries_per_op": 0.0,
+  "p99_ms": 1372.3,
+  "lost_updates": 0
+ },
+ {
+  "strategy": "optimistic",
+  "workers": 32,
+  "hot": true,
+  "ops_per_s": 219,
+  "retries_per_op": 23.89,
+  "p99_ms": 663.8,
+  "lost_updates": 0
+ },
+ {
+  "strategy": "atomic",
+  "workers": 1,
+  "hot": false,
+  "ops_per_s": 180,
+  "retries_per_op": 0.0,
+  "p99_ms": 7.1,
+  "lost_updates": 0
+ },
+ {
+  "strategy": "pessimistic",
+  "workers": 1,
+  "hot": false,
+  "ops_per_s": 154,
+  "retries_per_op": 0.0,
+  "p99_ms": 8.3,
+  "lost_updates": 0
+ },
+ {
+  "strategy": "optimistic",
+  "workers": 1,
+  "hot": false,
+  "ops_per_s": 160,
+  "retries_per_op": 0.0,
+  "p99_ms": 8.0,
+  "lost_updates": 0
+ },
+ {
+  "strategy": "atomic",
+  "workers": 4,
+  "hot": false,
+  "ops_per_s": 768,
+  "retries_per_op": 0.0,
+  "p99_ms": 7.6,
+  "lost_updates": 0
+ },
+ {
+  "strategy": "pessimistic",
+  "workers": 4,
+  "hot": false,
+  "ops_per_s": 700,
+  "retries_per_op": 0.0,
+  "p99_ms": 7.0,
+  "lost_updates": 0
+ },
+ {
+  "strategy": "optimistic",
+  "workers": 4,
+  "hot": false,
+  "ops_per_s": 758,
+  "retries_per_op": 0.0,
+  "p99_ms": 7.7,
+  "lost_updates": 0
+ },
+ {
+  "strategy": "atomic",
+  "workers": 16,
+  "hot": false,
+  "ops_per_s": 3594,
+  "retries_per_op": 0.0,
+  "p99_ms": 5.8,
+  "lost_updates": 0
+ },
+ {
+  "strategy": "pessimistic",
+  "workers": 16,
+  "hot": false,
+  "ops_per_s": 2690,
+  "retries_per_op": 0.0,
+  "p99_ms": 9.1,
+  "lost_updates": 0
+ },
+ {
+  "strategy": "optimistic",
+  "workers": 16,
+  "hot": false,
+  "ops_per_s": 3434,
+  "retries_per_op": 0.01,
+  "p99_ms": 8.3,
+  "lost_updates": 0
+ },
+ {
+  "strategy": "atomic",
+  "workers": 32,
+  "hot": false,
+  "ops_per_s": 7060,
+  "retries_per_op": 0.0,
+  "p99_ms": 6.1,
+  "lost_updates": 0
+ },
+ {
+  "strategy": "pessimistic",
+  "workers": 32,
+  "hot": false,
+  "ops_per_s": 2666,
+  "retries_per_op": 0.0,
+  "p99_ms": 18.1,
+  "lost_updates": 0
+ },
+ {
+  "strategy": "optimistic",
+  "workers": 32,
+  "hot": false,
+  "ops_per_s": 4662,
+  "retries_per_op": 0.02,
+  "p99_ms": 12.8,
+  "lost_updates": 0
+ }
+]

@@ -1,0 +1,32 @@
+{
+ "idle_sessions": {
+  "Repeatable Read, read-only, idle": {
+   "blocks": true,
+   "removed": 0,
+   "pinned": 150000,
+   "removed_after_commit": 150000,
+   "table_mb": "36.3 MB"
+  },
+  "Read Committed, read-only, idle": {
+   "blocks": false,
+   "removed": 50009,
+   "pinned": 0,
+   "removed_after_commit": 0,
+   "table_mb": "36.3 MB"
+  },
+  "Read Committed, UPDATE that matched nothing, idle": {
+   "blocks": false,
+   "removed": 50009,
+   "pinned": 0,
+   "removed_after_commit": 0,
+   "table_mb": "36.3 MB"
+  },
+  "Read Committed, has a transaction id (wrote something), idle": {
+   "blocks": true,
+   "removed": 0,
+   "pinned": 150000,
+   "removed_after_commit": 150000,
+   "table_mb": "36.3 MB"
+  }
+ }
+}

@@ -1,0 +1,162 @@
+{
+ "steady": {
+  "requests": 960,
+  "results": {
+   "fixed window (10 per second)": {
+    "accepted": 960,
+    "rejected": 0,
+    "max_downstream_per_100ms": 1,
+    "max_wait_s": 0.0,
+    "p99_wait_s": 0.0
+   },
+   "sliding window (10 in any 1 s)": {
+    "accepted": 960,
+    "rejected": 0,
+    "max_downstream_per_100ms": 1,
+    "max_wait_s": 0.0,
+    "p99_wait_s": 0.0
+   },
+   "token bucket (rate 10/s, capacity 10)": {
+    "accepted": 960,
+    "rejected": 0,
+    "max_downstream_per_100ms": 1,
+    "max_wait_s": 0.0,
+    "p99_wait_s": 0.0
+   },
+   "token bucket (rate 10/s, capacity 100)": {
+    "accepted": 960,
+    "rejected": 0,
+    "max_downstream_per_100ms": 1,
+    "max_wait_s": 0.0,
+    "p99_wait_s": 0.0
+   },
+   "leaky bucket (drain 10/s, queue 100)": {
+    "accepted": 960,
+    "rejected": 0,
+    "max_downstream_per_100ms": 1,
+    "max_wait_s": 0.0,
+    "p99_wait_s": 0.0
+   }
+  }
+ },
+ "bursty": {
+  "requests": 600,
+  "results": {
+   "fixed window (10 per second)": {
+    "accepted": 20,
+    "rejected": 580,
+    "max_downstream_per_100ms": 10,
+    "max_wait_s": 0.0,
+    "p99_wait_s": 0.0
+   },
+   "sliding window (10 in any 1 s)": {
+    "accepted": 20,
+    "rejected": 580,
+    "max_downstream_per_100ms": 10,
+    "max_wait_s": 0.0,
+    "p99_wait_s": 0.0
+   },
+   "token bucket (rate 10/s, capacity 10)": {
+    "accepted": 38,
+    "rejected": 562,
+    "max_downstream_per_100ms": 10,
+    "max_wait_s": 0.0,
+    "p99_wait_s": 0.0
+   },
+   "token bucket (rate 10/s, capacity 100)": {
+    "accepted": 218,
+    "rejected": 382,
+    "max_downstream_per_100ms": 30,
+    "max_wait_s": 0.0,
+    "p99_wait_s": 0.0
+   },
+   "leaky bucket (drain 10/s, queue 100)": {
+    "accepted": 220,
+    "rejected": 380,
+    "max_downstream_per_100ms": 1,
+    "max_wait_s": 10.0,
+    "p99_wait_s": 10.0
+   }
+  }
+ },
+ "boundary": {
+  "requests": 20,
+  "results": {
+   "fixed window (10 per second)": {
+    "accepted": 20,
+    "rejected": 0,
+    "max_downstream_per_100ms": 10,
+    "max_wait_s": 0.0,
+    "p99_wait_s": 0.0
+   },
+   "sliding window (10 in any 1 s)": {
+    "accepted": 10,
+    "rejected": 10,
+    "max_downstream_per_100ms": 10,
+    "max_wait_s": 0.0,
+    "p99_wait_s": 0.0
+   },
+   "token bucket (rate 10/s, capacity 10)": {
+    "accepted": 11,
+    "rejected": 9,
+    "max_downstream_per_100ms": 10,
+    "max_wait_s": 0.0,
+    "p99_wait_s": 0.0
+   },
+   "token bucket (rate 10/s, capacity 100)": {
+    "accepted": 20,
+    "rejected": 0,
+    "max_downstream_per_100ms": 10,
+    "max_wait_s": 0.0,
+    "p99_wait_s": 0.0
+   },
+   "leaky bucket (drain 10/s, queue 100)": {
+    "accepted": 20,
+    "rejected": 0,
+    "max_downstream_per_100ms": 1,
+    "max_wait_s": 1.71,
+    "p99_wait_s": 1.62
+   }
+  }
+ },
+ "abusive": {
+  "requests": 6000,
+  "results": {
+   "fixed window (10 per second)": {
+    "accepted": 1200,
+    "rejected": 4800,
+    "max_downstream_per_100ms": 5,
+    "max_wait_s": 0.0,
+    "p99_wait_s": 0.0
+   },
+   "sliding window (10 in any 1 s)": {
+    "accepted": 1200,
+    "rejected": 4800,
+    "max_downstream_per_100ms": 5,
+    "max_wait_s": 0.0,
+    "p99_wait_s": 0.0
+   },
+   "token bucket (rate 10/s, capacity 10)": {
+    "accepted": 1209,
+    "rejected": 4791,
+    "max_downstream_per_100ms": 5,
+    "max_wait_s": 0.0,
+    "p99_wait_s": 0.0
+   },
+   "token bucket (rate 10/s, capacity 100)": {
+    "accepted": 1299,
+    "rejected": 4701,
+    "max_downstream_per_100ms": 5,
+    "max_wait_s": 0.0,
+    "p99_wait_s": 0.0
+   },
+   "leaky bucket (drain 10/s, queue 100)": {
+    "accepted": 1300,
+    "rejected": 4700,
+    "max_downstream_per_100ms": 1,
+    "max_wait_s": 10.0,
+    "p99_wait_s": 10.0
+   }
+  }
+ }
+}

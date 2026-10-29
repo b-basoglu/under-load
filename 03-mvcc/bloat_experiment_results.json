@@ -1,0 +1,167 @@
+{
+ "without_long_tx": [
+  {
+   "round": 0,
+   "table_mb": 9.1,
+   "index_mb": 1.52,
+   "queue_pages": 128
+  },
+  {
+   "round": 1,
+   "table_mb": 10.0,
+   "index_mb": 1.52,
+   "queue_pages": 6
+  },
+  {
+   "round": 2,
+   "table_mb": 10.0,
+   "index_mb": 1.52,
+   "queue_pages": 105
+  },
+  {
+   "round": 3,
+   "table_mb": 10.0,
+   "index_mb": 1.52,
+   "queue_pages": 34
+  },
+  {
+   "round": 4,
+   "table_mb": 10.0,
+   "index_mb": 1.52,
+   "queue_pages": 90
+  },
+  {
+   "round": 5,
+   "table_mb": 10.0,
+   "index_mb": 1.52,
+   "queue_pages": 22
+  },
+  {
+   "round": 6,
+   "table_mb": 10.0,
+   "index_mb": 1.52,
+   "queue_pages": 52
+  },
+  {
+   "round": 7,
+   "table_mb": 10.0,
+   "index_mb": 1.52,
+   "queue_pages": 38
+  },
+  {
+   "round": 8,
+   "table_mb": 10.0,
+   "index_mb": 1.52,
+   "queue_pages": 27
+  },
+  {
+   "round": 9,
+   "table_mb": 10.0,
+   "index_mb": 1.52,
+   "queue_pages": 39
+  },
+  {
+   "round": 10,
+   "table_mb": 10.0,
+   "index_mb": 1.52,
+   "queue_pages": 15
+  },
+  {
+   "round": 11,
+   "table_mb": 10.0,
+   "index_mb": 1.52,
+   "queue_pages": 9
+  },
+  {
+   "round": 12,
+   "table_mb": 10.0,
+   "index_mb": 1.52,
+   "queue_pages": 9
+  }
+ ],
+ "with_idle_repeatable_read": [
+  {
+   "round": 0,
+   "table_mb": 9.1,
+   "index_mb": 1.52,
+   "queue_pages": 128
+  },
+  {
+   "round": 1,
+   "table_mb": 10.0,
+   "index_mb": 1.52,
+   "queue_pages": 144
+  },
+  {
+   "round": 2,
+   "table_mb": 11.0,
+   "index_mb": 1.52,
+   "queue_pages": 160
+  },
+  {
+   "round": 3,
+   "table_mb": 11.9,
+   "index_mb": 1.66,
+   "queue_pages": 176
+  },
+  {
+   "round": 4,
+   "table_mb": 12.8,
+   "index_mb": 3.02,
+   "queue_pages": 193
+  },
+  {
+   "round": 5,
+   "table_mb": 13.7,
+   "index_mb": 3.02,
+   "queue_pages": 209
+  },
+  {
+   "round": 6,
+   "table_mb": 14.7,
+   "index_mb": 3.03,
+   "queue_pages": 225
+  },
+  {
+   "round": 7,
+   "table_mb": 15.6,
+   "index_mb": 3.03,
+   "queue_pages": 242
+  },
+  {
+   "round": 8,
+   "table_mb": 16.5,
+   "index_mb": 3.03,
+   "queue_pages": 258
+  },
+  {
+   "round": 9,
+   "table_mb": 17.5,
+   "index_mb": 3.03,
+   "queue_pages": 274
+  },
+  {
+   "round": 10,
+   "table_mb": 18.4,
+   "index_mb": 3.04,
+   "queue_pages": 291
+  },
+  {
+   "round": 11,
+   "table_mb": 19.3,
+   "index_mb": 3.04,
+   "queue_pages": 307
+  },
+  {
+   "round": 12,
+   "table_mb": 20.3,
+   "index_mb": 3.04,
+   "queue_pages": 323
+  },
+  {
+   "round": "after commit + VACUUM",
+   "table_mb": 20.3,
+   "queue_pages": 8
+  }
+ ]
+}

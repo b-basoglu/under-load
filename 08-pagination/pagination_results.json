@@ -1,0 +1,68 @@
+{
+ "depth": [
+  {
+   "page": 1,
+   "offset_ms": 0.01,
+   "offset_buffers": 4,
+   "keyset_ms": 0.01,
+   "keyset_buffers": 4
+  },
+  {
+   "page": 10,
+   "offset_ms": 0.06,
+   "offset_buffers": 10,
+   "keyset_ms": 0.01,
+   "keyset_buffers": 4
+  },
+  {
+   "page": 100,
+   "offset_ms": 0.54,
+   "offset_buffers": 69,
+   "keyset_ms": 0.01,
+   "keyset_buffers": 4
+  },
+  {
+   "page": 1000,
+   "offset_ms": 5.36,
+   "offset_buffers": 666,
+   "keyset_ms": 0.01,
+   "keyset_buffers": 4
+  },
+  {
+   "page": 10000,
+   "offset_ms": 57.02,
+   "offset_buffers": 6633,
+   "keyset_ms": 0.01,
+   "keyset_buffers": 5
+  },
+  {
+   "page": 39999,
+   "offset_ms": 283.9,
+   "offset_buffers": 26521,
+   "keyset_ms": 0.01,
+   "keyset_buffers": 4
+  }
+ ],
+ "shifting": {
+  "insert_duplicates_offset": 5,
+  "insert_duplicates_keyset": 0,
+  "delete_skipped_offset": 5,
+  "delete_skipped_keyset": 0
+ },
+ "tie_breaker": {
+  "pages": 30,
+  "page_size": 7,
+  "rows_returned": 210,
+  "missed_within_range": 63,
+  "missed_with_id_tiebreaker": 0
+ },
+ "backwards": {
+  "matches": true,
+  "ms": 0.01
+ },
+ "count": {
+  "exact_count_ms": 101.53,
+  "has_more_check_ms": 0.02,
+  "estimate": 2000000
+ }
+}

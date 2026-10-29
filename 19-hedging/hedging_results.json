@@ -1,0 +1,136 @@
+{
+ "runs": [
+  {
+   "rate": 60,
+   "policy": "none",
+   "delay_ms": null,
+   "p50": 25.1,
+   "p99": 294.0,
+   "p999": 388.4,
+   "extra_load_pct": 0.0,
+   "wasted_work_pct": 0.0,
+   "hedges_pct": 0.0,
+   "hedge_win_pct": 0.0,
+   "load": "moderate load"
+  },
+  {
+   "rate": 60,
+   "policy": "immediate",
+   "delay_ms": null,
+   "p50": 28.7,
+   "p99": 127.6,
+   "p999": 224.9,
+   "extra_load_pct": 100.0,
+   "wasted_work_pct": 69.9,
+   "hedges_pct": 100.0,
+   "hedge_win_pct": 50.9,
+   "load": "moderate load"
+  },
+  {
+   "rate": 60,
+   "policy": "delayed",
+   "delay_ms": 93,
+   "p50": 25.6,
+   "p99": 137.8,
+   "p999": 206.5,
+   "extra_load_pct": 4.1,
+   "wasted_work_pct": 1.7,
+   "hedges_pct": 4.1,
+   "hedge_win_pct": 52.9,
+   "load": "moderate load"
+  },
+  {
+   "rate": 60,
+   "policy": "delayed+budget",
+   "delay_ms": 93,
+   "p50": 25.6,
+   "p99": 137.8,
+   "p999": 206.5,
+   "extra_load_pct": 4.1,
+   "wasted_work_pct": 1.7,
+   "hedges_pct": 4.1,
+   "hedge_win_pct": 52.9,
+   "load": "moderate load"
+  },
+  {
+   "rate": 115,
+   "policy": "none",
+   "delay_ms": null,
+   "p50": 60.8,
+   "p99": 484.1,
+   "p999": 651.4,
+   "extra_load_pct": 0.0,
+   "wasted_work_pct": 0.0,
+   "hedges_pct": 0.0,
+   "hedge_win_pct": 0.0,
+   "load": "high load"
+  },
+  {
+   "rate": 115,
+   "policy": "immediate",
+   "delay_ms": null,
+   "p50": 16354.2,
+   "p99": 32077.6,
+   "p999": 32353.7,
+   "extra_load_pct": 100.0,
+   "wasted_work_pct": 54.2,
+   "hedges_pct": 100.0,
+   "hedge_win_pct": 49.9,
+   "load": "high load"
+  },
+  {
+   "rate": 115,
+   "policy": "delayed",
+   "delay_ms": 333,
+   "p50": 64.9,
+   "p99": 408.0,
+   "p999": 473.2,
+   "extra_load_pct": 3.1,
+   "wasted_work_pct": 1.0,
+   "hedges_pct": 3.1,
+   "hedge_win_pct": 18.7,
+   "load": "high load"
+  },
+  {
+   "rate": 115,
+   "policy": "delayed+budget",
+   "delay_ms": 333,
+   "p50": 63.8,
+   "p99": 388.7,
+   "p999": 466.2,
+   "extra_load_pct": 2.8,
+   "wasted_work_pct": 0.9,
+   "hedges_pct": 2.8,
+   "hedge_win_pct": 24.2,
+   "load": "high load"
+  }
+ ],
+ "aggressive": [
+  {
+   "rate": 115,
+   "policy": "delayed",
+   "delay_ms": 30,
+   "p50": 4844.6,
+   "p99": 10699.7,
+   "p999": 10771.7,
+   "extra_load_pct": 99.9,
+   "wasted_work_pct": 32.1,
+   "hedges_pct": 99.9,
+   "hedge_win_pct": 20.2,
+   "load": "high load, 30 ms delay"
+  },
+  {
+   "rate": 115,
+   "policy": "delayed+budget",
+   "delay_ms": 30,
+   "p50": 59.0,
+   "p99": 366.1,
+   "p999": 510.8,
+   "extra_load_pct": 5.0,
+   "wasted_work_pct": 1.3,
+   "hedges_pct": 5.0,
+   "hedge_win_pct": 34.2,
+   "load": "high load, 30 ms delay"
+  }
+ ]
+}

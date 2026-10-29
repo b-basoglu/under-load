@@ -1,0 +1,34 @@
+{
+ "naive_retry": {
+  "tickets": 2,
+  "emails": 2
+ },
+ "idempotent_retry": {
+  "tickets": 1,
+  "first": {
+   "id": 1
+  },
+  "retry": {
+   "id": 1,
+   "replayed": true
+  }
+ },
+ "new_key_per_retry": {
+  "tickets": 2
+ },
+ "mismatch": "rejected (422)",
+ "concurrent": {
+  "check_then_insert_tickets": 2,
+  "unique_claim_tickets": 1,
+  "second_request": "{'id': 3, 'replayed': True}",
+  "second_waited_s": 0.62
+ },
+ "crash": {
+  "separate_transactions_tickets": 2,
+  "same_transaction_tickets": 1
+ },
+ "provider": {
+  "charges_without_key": 2,
+  "charges_with_key": 1
+ }
+}

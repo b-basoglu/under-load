@@ -1,0 +1,40 @@
+{
+ "basic": {
+  "one_call_ms": 202,
+  "without": {
+   "backend_calls": 100,
+   "median_ms": 23892,
+   "max_ms": 25611
+  },
+  "with": {
+   "backend_calls": 1,
+   "median_ms": 210,
+   "max_ms": 211,
+   "followers": 99
+  }
+ },
+ "multi_node": {
+  "servers": 4,
+  "backend_calls": 4
+ },
+ "failure": {
+  "backend_calls": 2,
+  "callers_failed": 100,
+  "with_stale_fallback_failed": 0
+ },
+ "slow_leader": {
+  "unbounded_median_ms": 3239,
+  "bounded_median_ms": 506,
+  "bounded_max_ms": 3232
+ },
+ "bad_key": {
+  "wrong_with_bad_key": 20,
+  "non_admins_shown_billing": 0,
+  "wrong_with_full_key": 0,
+  "requests": 30
+ },
+ "sequential": {
+  "requests": 20,
+  "backend_calls": 20
+ }
+}

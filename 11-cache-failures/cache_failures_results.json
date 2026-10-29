@@ -1,0 +1,139 @@
+{
+ "stampede": {
+  "no protection": {
+   "db_queries": 186,
+   "attempts": 200,
+   "peak_concurrent_db": 95,
+   "median_ms": 30087,
+   "max_ms": 42016,
+   "failed": 14
+  },
+  "rebuild lock": {
+   "db_queries": 1,
+   "attempts": 1,
+   "peak_concurrent_db": 1,
+   "median_ms": 268,
+   "max_ms": 288,
+   "failed": 0
+  },
+  "stale-while-revalidate": {
+   "db_queries": 1,
+   "peak_concurrent_db": 1,
+   "median_ms": 25,
+   "max_ms": 36
+  }
+ },
+ "avalanche": {
+  "same TTL": {
+   "misses_per_half_second": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    13,
+    1101,
+    1033,
+    946,
+    810,
+    597,
+    323,
+    149,
+    48,
+    12,
+    3,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "peak": 1101
+  },
+  "TTL + up to 100% jitter": {
+   "misses_per_half_second": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    171,
+    319,
+    355,
+    406,
+    396,
+    427,
+    415,
+    425,
+    400,
+    430,
+    396,
+    437,
+    298,
+    108,
+    49,
+    8,
+    6,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "peak": 437
+  }
+ },
+ "penetration": {
+  "db_queries": {
+   "cache only": 5000,
+   "negative caching": 5000,
+   "bloom filter": 0
+  },
+  "requests": 5000,
+  "bloom_false_positive_rate": 2e-05,
+  "bloom_kb": 128
+ },
+ "outage": {
+  "unbounded fallback": {
+   "db_queries": 100,
+   "peak_concurrent_db": 95,
+   "median_ms": 22137,
+   "max_ms": 24103,
+   "other_request_p99_ms": 103.5,
+   "other_request_max_ms": 287.0
+  },
+  "fallback capped at 8 queries shed": 92,
+  "fallback capped at 8 queries": {
+   "db_queries": 8,
+   "peak_concurrent_db": 8,
+   "median_ms": 507,
+   "max_ms": 1190,
+   "other_request_p99_ms": 48.9,
+   "other_request_max_ms": 65.2
+  }
+ }
+}
