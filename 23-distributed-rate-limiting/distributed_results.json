@@ -1,51 +1,51 @@
 {
  "local_only": {
   "allowed_per_s": 200.0,
-  "limiter_p50_ms": 0.008,
-  "limiter_p99_ms": 0.021
+  "limiter_p50_ms": 0.005,
+  "limiter_p99_ms": 0.011
  },
  "redis_lua": {
   "allowed_per_s": 23.8,
-  "limiter_p50_ms": 1.406,
-  "limiter_p99_ms": 2.629
+  "limiter_p50_ms": 1.037,
+  "limiter_p99_ms": 1.91
  },
  "redis_racy": {
   "allowed_per_s": 47.6,
-  "limiter_p50_ms": 8.503,
-  "limiter_p99_ms": 12.055
+  "limiter_p50_ms": 7.79,
+  "limiter_p99_ms": 10.25
  },
  "local_split": {
   "round_robin": {
    "allowed_per_s": 22.0,
-   "limiter_p50_ms": 0.007,
-   "limiter_p99_ms": 0.019
+   "limiter_p50_ms": 0.004,
+   "limiter_p99_ms": 0.009
   },
   "sticky_two_servers": {
    "allowed_per_s": 4.4,
-   "limiter_p50_ms": 0.006,
-   "limiter_p99_ms": 0.016
+   "limiter_p50_ms": 0.004,
+   "limiter_p99_ms": 0.009
   }
  },
  "store_down": {
   "fail-open": {
    "allowed_per_s": 200.0,
-   "limiter_p50_ms": 56.721,
-   "limiter_p99_ms": 60.122
+   "limiter_p50_ms": 55.081,
+   "limiter_p99_ms": 60.061
   },
   "fail-closed": {
    "allowed_per_s": 0.0,
-   "limiter_p50_ms": 56.71,
-   "limiter_p99_ms": 60.189
+   "limiter_p50_ms": 54.781,
+   "limiter_p99_ms": 60.07
   },
   "local fallback": {
    "allowed_per_s": 22.0,
-   "limiter_p50_ms": 57.047,
-   "limiter_p99_ms": 60.22
+   "limiter_p50_ms": 54.989,
+   "limiter_p99_ms": 60.064
   },
   "local fallback + breaker": {
    "allowed_per_s": 22.0,
-   "limiter_p50_ms": 0.027,
-   "limiter_p99_ms": 58.035
+   "limiter_p50_ms": 0.014,
+   "limiter_p99_ms": 54.694
   }
  }
 }
