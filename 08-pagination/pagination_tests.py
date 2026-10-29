@@ -19,7 +19,7 @@ def c():
 
 
 def setup(k):
-    k.execute("DROP TABLE IF EXISTS tickets")
+    k.execute("DROP TABLE IF EXISTS tickets CASCADE")
     k.execute("CREATE TABLE tickets (id bigint PRIMARY KEY, workspace_id int, created_at timestamptz, subject text)")
     # 2M tickets for workspace 7; created_at has many ties (one value per 10 tickets)
     k.execute("""INSERT INTO tickets
