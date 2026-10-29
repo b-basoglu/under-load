@@ -1,26 +1,26 @@
 {
  "stampede": {
   "no protection": {
-   "db_queries": 186,
+   "db_queries": 200,
    "attempts": 200,
    "peak_concurrent_db": 95,
-   "median_ms": 30087,
-   "max_ms": 42016,
-   "failed": 14
+   "median_ms": 2690,
+   "max_ms": 4216,
+   "failed": 0
   },
   "rebuild lock": {
    "db_queries": 1,
    "attempts": 1,
    "peak_concurrent_db": 1,
-   "median_ms": 268,
-   "max_ms": 288,
+   "median_ms": 257,
+   "max_ms": 285,
    "failed": 0
   },
   "stale-while-revalidate": {
    "db_queries": 1,
    "peak_concurrent_db": 1,
-   "median_ms": 25,
-   "max_ms": 36
+   "median_ms": 24,
+   "max_ms": 34
   }
  },
  "avalanche": {
@@ -37,18 +37,18 @@
     0,
     0,
     0,
-    13,
-    1101,
-    1033,
-    946,
-    810,
-    597,
-    323,
-    149,
-    48,
-    12,
-    3,
-    1,
+    14,
+    1127,
+    1066,
+    969,
+    814,
+    568,
+    313,
+    105,
+    40,
+    6,
+    2,
+    0,
     0,
     0,
     0,
@@ -63,7 +63,7 @@
     0,
     0
    ],
-   "peak": 1101
+   "peak": 1127
   },
   "TTL + up to 100% jitter": {
    "misses_per_half_second": [
@@ -79,24 +79,24 @@
     0,
     0,
     0,
-    171,
-    319,
-    355,
-    406,
-    396,
-    427,
-    415,
-    425,
+    156,
+    328,
+    394,
+    391,
+    391,
+    413,
     400,
-    430,
-    396,
-    437,
-    298,
-    108,
-    49,
-    8,
-    6,
-    1,
+    422,
+    434,
+    422,
+    448,
+    421,
+    287,
+    103,
+    30,
+    11,
+    0,
+    0,
     0,
     0,
     0,
@@ -104,7 +104,7 @@
     0,
     0
    ],
-   "peak": 437
+   "peak": 448
   }
  },
  "penetration": {
@@ -121,19 +121,19 @@
   "unbounded fallback": {
    "db_queries": 100,
    "peak_concurrent_db": 95,
-   "median_ms": 22137,
-   "max_ms": 24103,
-   "other_request_p99_ms": 103.5,
-   "other_request_max_ms": 287.0
+   "median_ms": 1909,
+   "max_ms": 2113,
+   "other_request_p99_ms": 18.5,
+   "other_request_max_ms": 54.9
   },
-  "fallback capped at 8 queries shed": 92,
+  "fallback capped at 8 queries shed": 76,
   "fallback capped at 8 queries": {
-   "db_queries": 8,
+   "db_queries": 24,
    "peak_concurrent_db": 8,
-   "median_ms": 507,
-   "max_ms": 1190,
-   "other_request_p99_ms": 48.9,
-   "other_request_max_ms": 65.2
+   "median_ms": 511,
+   "max_ms": 607,
+   "other_request_p99_ms": 1.7,
+   "other_request_max_ms": 2.5
   }
  }
 }
