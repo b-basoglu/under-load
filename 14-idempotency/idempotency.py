@@ -29,7 +29,7 @@ def db():
 
 def setup():
     with db() as k:
-        k.execute("DROP TABLE IF EXISTS idempotency_keys, tickets")
+        k.execute("DROP TABLE IF EXISTS idempotency_keys, tickets CASCADE")
         k.execute("CREATE TABLE tickets (id serial PRIMARY KEY, workspace_id int, subject text, created_at timestamptz DEFAULT now())")
         k.execute("""CREATE TABLE idempotency_keys (
                        workspace_id int, key text, request_hash text NOT NULL,

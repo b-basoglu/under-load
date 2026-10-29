@@ -21,7 +21,7 @@
   "check_then_insert_tickets": 2,
   "unique_claim_tickets": 1,
   "second_request": "{'id': 3, 'replayed': True}",
-  "second_waited_s": 0.62
+  "second_waited_s": 0.61
  },
  "crash": {
   "separate_transactions_tickets": 2,
