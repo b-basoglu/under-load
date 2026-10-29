@@ -1,101 +1,100 @@
 {
  "overhead_pct": {
-  "19": -0.2,
-  "99": 0.1,
-  "999": 0.2
+  "19": -0.4,
+  "99": -0.2,
+  "999": -0.2
  },
  "achieved_hz": {
   "19": 15,
   "99": 47,
-  "999": 119
+  "999": 118
  },
- "baseline_rps": 1782,
+ "baseline_rps": 1743,
  "releases": {
   "v1": {
-   "rps": 1776,
-   "cpu_ms_per_request": 0.562
+   "rps": 1747,
+   "cpu_ms_per_request": 0.571
   },
   "v2": {
-   "rps": 700,
-   "cpu_ms_per_request": 1.423
+   "rps": 656,
+   "cpu_ms_per_request": 1.518
   }
  },
  "profile_v1": {
-  "samples": 475,
-  "achieved_hz": 47.5,
+  "samples": 473,
+  "achieved_hz": 47.3,
   "inclusive": {
    "render_ticket": 100.0,
-   "mask_pii_v1": 90.11,
-   "render_markdown": 5.26,
-   "iterencode": 4.21,
-   "serialize": 4.21,
-   "encode": 4.21,
-   "dumps": 4.21
+   "mask_pii_v1": 90.06,
+   "render_markdown": 5.07,
+   "dumps": 4.23,
+   "encode": 4.23,
+   "iterencode": 4.23,
+   "serialize": 4.23
   },
   "self": {
    "mask_pii_v1": 90.1,
-   "render_markdown": 5.3,
+   "render_markdown": 5.1,
    "iterencode": 4.2,
-   "render_ticket": 0.4
+   "render_ticket": 0.6
   },
   "folded": {
-   "render_ticket;mask_pii_v1": 428,
-   "render_ticket;render_markdown": 25,
+   "render_ticket;mask_pii_v1": 426,
+   "render_ticket;render_markdown": 24,
    "render_ticket;serialize;dumps;encode": 20,
-   "render_ticket": 2
+   "render_ticket": 3
   }
  },
  "profile_v2": {
-  "samples": 477,
-  "achieved_hz": 47.7,
+  "samples": 469,
+  "achieved_hz": 46.9,
   "inclusive": {
    "render_ticket": 100.0,
-   "mask_pii_v2": 95.39,
-   "render_markdown": 2.52,
-   "dumps": 1.26,
-   "encode": 1.26,
-   "serialize": 1.26,
-   "iterencode": 1.05,
-   "deepcopy": 0.42,
-   "_deepcopy_dict": 0.42,
-   "_deepcopy_list": 0.42,
-   "compile": 0.21
+   "mask_pii_v2": 94.24,
+   "render_markdown": 2.77,
+   "dumps": 1.49,
+   "encode": 1.49,
+   "iterencode": 1.49,
+   "serialize": 1.49,
+   "_deepcopy_dict": 1.49,
+   "deepcopy": 1.49,
+   "_deepcopy_list": 1.49,
+   "__get__": 0.21,
+   "_compile": 0.21
   },
   "self": {
-   "mask_pii_v2": 95.2,
-   "render_markdown": 2.5,
-   "iterencode": 1.0,
-   "render_ticket": 0.4,
-   "_deepcopy_dict": 0.2,
-   "encode": 0.2,
-   "compile": 0.2,
-   "deepcopy": 0.2
+   "mask_pii_v2": 94.0,
+   "render_markdown": 2.8,
+   "iterencode": 1.5,
+   "deepcopy": 0.6,
+   "_deepcopy_dict": 0.6,
+   "__get__": 0.2,
+   "_keep_alive": 0.2
   },
   "folded": {
-   "render_ticket;mask_pii_v2": 454,
-   "render_ticket;render_markdown": 12,
-   "render_ticket;serialize;dumps;encode": 6,
-   "render_ticket;deepcopy;_deepcopy_dict;deepcopy": 2,
-   "render_ticket": 2,
-   "render_ticket;mask_pii_v2;compile": 1
+   "render_ticket;mask_pii_v2": 441,
+   "render_ticket;render_markdown": 13,
+   "render_ticket;serialize;dumps;encode": 7,
+   "render_ticket;deepcopy;_deepcopy_dict;deepcopy": 7,
+   "render_ticket;mask_pii_v2;compile;_compile": 1
   }
  },
  "diff_ms_per_request": {
   "mask_pii": [
-   0.506,
-   1.358
+   0.514,
+   1.431
   ],
   "render_markdown": [
-   0.03,
-   0.036
+   0.029,
+   0.042
   ],
   "serialize": [
    0.024,
-   0.018
+   0.023
   ],
   "deepcopy": [
    0.0,
-   0.006
+   0.023
   ],
   "re.compile": [
    0.0,
