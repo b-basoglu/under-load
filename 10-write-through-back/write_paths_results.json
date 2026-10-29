@@ -1,39 +1,39 @@
 {
  "throughput": {
   "write_through": {
-   "writes": 22398,
-   "per_s": 5600,
-   "median_ms": 2.72,
-   "p99_ms": 5.02,
-   "db_statements": 22398,
-   "db_views_after": 22398,
+   "writes": 23513,
+   "per_s": 5878,
+   "median_ms": 2.582,
+   "p99_ms": 4.69,
+   "db_statements": 23513,
+   "db_views_after": 23513,
    "db_matches_writes": true
   },
   "write_back": {
-   "writes": 53534,
-   "per_s": 13384,
-   "median_ms": 1.085,
-   "p99_ms": 3.02,
+   "writes": 55139,
+   "per_s": 13785,
+   "median_ms": 1.059,
+   "p99_ms": 2.85,
    "db_rows_written": 800,
    "flushes": 4,
-   "db_views_right_after_load": 46497,
-   "db_views_after_final_flush": 53534
+   "db_views_right_after_load": 47889,
+   "db_views_after_final_flush": 55139
   }
  },
  "crash": {
   "no persistence": {
-   "acknowledged": 16018,
+   "acknowledged": 16589,
    "survived_crash": 0,
-   "lost": 16018
+   "lost": 16589
   },
   "AOF, appendfsync everysec": {
-   "acknowledged": 16371,
-   "survived_crash": 16371,
+   "acknowledged": 16920,
+   "survived_crash": 16920,
    "lost": 0
   },
   "AOF, appendfsync always": {
-   "acknowledged": 5059,
-   "survived_crash": 5059,
+   "acknowledged": 5110,
+   "survived_crash": 5110,
    "lost": 0
   }
  },
