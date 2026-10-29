@@ -104,7 +104,8 @@ def main():
         report(f"synchronous_commit = {mode}, then kill -9 during a stream of commits",
                "no acknowledged commit is lost" if mode == "on" else "the last few acknowledged commits can be lost",
                f"acknowledged={len(acked)} present after crash={present} lost={lost}",
-               lost == 0 if mode == "on" else lost > 0)       # "off" must actually lose something, or the test didn't test it
+               lost <= 0 if mode == "on" else lost > 0)       # on: none lost (present may exceed acked if in-flight); off must lose some
+
 
     # 3. Commit latency and group commit
     def bench(mode, clients, seconds=4):

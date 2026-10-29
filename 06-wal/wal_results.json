@@ -8,51 +8,51 @@
   "database system is ready to accept connections"
  ],
  "sync_commit_on": {
-  "acknowledged": 14687,
-  "present_after_crash": 14687,
-  "lost": 0
+  "acknowledged": 15240,
+  "present_after_crash": 15241,
+  "lost": -1
  },
  "sync_commit_off": {
-  "acknowledged": 20238,
-  "present_after_crash": 19876,
-  "lost": 362
+  "acknowledged": 21383,
+  "present_after_crash": 20597,
+  "lost": 786
  },
  "commit_bench": [
   {
    "mode": "on",
    "clients": 1,
-   "commits_per_s": 4664,
-   "avg_commit_ms": 0.21,
-   "wal_syncs": 18655,
+   "commits_per_s": 4312,
+   "avg_commit_ms": 0.23,
+   "wal_syncs": 17248,
    "commits_per_sync": 1.0
   },
   {
    "mode": "off",
    "clients": 1,
-   "commits_per_s": 7017,
+   "commits_per_s": 7020,
    "avg_commit_ms": 0.14,
    "wal_syncs": 21,
-   "commits_per_sync": 1336.5
+   "commits_per_sync": 1337.2
   },
   {
    "mode": "on",
    "clients": 8,
-   "commits_per_s": 13026,
-   "avg_commit_ms": 0.61,
-   "wal_syncs": 17985,
+   "commits_per_s": 12890,
+   "avg_commit_ms": 0.62,
+   "wal_syncs": 17654,
    "commits_per_sync": 2.9
   },
   {
    "mode": "on",
    "clients": 32,
-   "commits_per_s": 10178,
-   "avg_commit_ms": 3.14,
-   "wal_syncs": 13263,
+   "commits_per_s": 10592,
+   "avg_commit_ms": 3.02,
+   "wal_syncs": 13632,
    "commits_per_sync": 3.1
   }
  ],
  "full_page_write_bytes": {
-  "first_update_after_checkpoint": 19272,
+  "first_update_after_checkpoint": 19248,
   "second_update": 192
  },
  "recovery": {
@@ -63,7 +63,7 @@
   },
   "~700 MB of WAL since checkpoint": {
    "wal_mb_generated": 698,
-   "redo_seconds": 1.11,
+   "redo_seconds": 1.0,
    "restart_seconds": 1.7
   }
  },
