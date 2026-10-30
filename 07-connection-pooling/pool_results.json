@@ -1,11 +1,11 @@
 {
  "connect_cost_ms": {
-  "new_connection_per_query": 5.83,
+  "new_connection_per_query": 5.23,
   "reused_connection": 0.3,
   "backend_memory_one_idle_session": "1303 kB"
  },
  "max_connections": {
-  "opened": 100,
+  "opened": 80,
   "error": [
    null,
    "sorry, too many clients already"
@@ -14,71 +14,71 @@
  "throughput_vs_connections": [
   {
    "connections": 1,
-   "queries_per_s": 41.6,
+   "queries_per_s": 43.0,
    "median_ms": 23,
-   "p99_ms": 26
+   "p99_ms": 25
   },
   {
    "connections": 2,
-   "queries_per_s": 82.0,
+   "queries_per_s": 83.6,
    "median_ms": 24,
-   "p99_ms": 26
+   "p99_ms": 28
   },
   {
    "connections": 4,
-   "queries_per_s": 75.6,
-   "median_ms": 72,
-   "p99_ms": 82
+   "queries_per_s": 76.8,
+   "median_ms": 65,
+   "p99_ms": 87
   },
   {
    "connections": 8,
-   "queries_per_s": 54.0,
-   "median_ms": 133,
+   "queries_per_s": 54.2,
+   "median_ms": 123,
    "p99_ms": 199
   },
   {
    "connections": 16,
-   "queries_per_s": 39.0,
-   "median_ms": 392,
-   "p99_ms": 705
+   "queries_per_s": 41.6,
+   "median_ms": 390,
+   "p99_ms": 792
   },
   {
    "connections": 32,
-   "queries_per_s": 39.6,
-   "median_ms": 700,
-   "p99_ms": 2504
+   "queries_per_s": 40.8,
+   "median_ms": 726,
+   "p99_ms": 1892
   },
   {
    "connections": 64,
-   "queries_per_s": 42.2,
-   "median_ms": 1408,
-   "p99_ms": 4302
+   "queries_per_s": 45.0,
+   "median_ms": 1284,
+   "p99_ms": 4301
   }
  ],
  "pool_exhaustion": {
   "outcomes_while_busy": [
    [
     "timeout",
-    1.0
+    1.01
    ],
    [
     "timeout",
-    1.0
+    1.01
    ],
    [
     "timeout",
-    1.0
+    1.01
    ],
    [
     "timeout",
-    1.0
+    1.01
    ],
    [
     "timeout",
     1.01
    ]
   ],
-  "ms_after_slow_queries_finish": 1.6,
+  "ms_after_slow_queries_finish": 1.5,
   "pool_stats_while_busy": {
    "pool_size": 10,
    "pool_available": 0,
@@ -88,7 +88,7 @@
  "pgbouncer": {
   "client_connections": 200,
   "server_connections_seen": 20,
-  "queries": 39958,
+  "queries": 43371,
   "errors": []
  },
  "pgbouncer_session_state": [

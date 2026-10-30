@@ -23,7 +23,7 @@ def report(name, claim, observed, ok):
 
 def setup():
     with psycopg.connect(PG, autocommit=True) as c:
-        c.execute("DROP TABLE IF EXISTS tickets")
+        c.execute("DROP TABLE IF EXISTS tickets CASCADE")
         c.execute("CREATE TABLE tickets (id int PRIMARY KEY, workspace_id int, assignee_id int, subject text)")
         c.execute("INSERT INTO tickets SELECT g, g % 50, g % 400, repeat('x', 80) FROM generate_series(1, 200000) g")
         c.execute("CREATE INDEX ON tickets (workspace_id, assignee_id)")
