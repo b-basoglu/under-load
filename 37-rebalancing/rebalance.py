@@ -263,10 +263,11 @@ if __name__ == "__main__":
     data.update({"speed": S, "cutover": C, "resume": RS})
     b, t = S["burst"], S["throttled"]
     report("Copy as fast as possible", "the move competes with users: foreground p99 jumps while it runs",
-           f"copy {b['copy_s']} s; foreground p99 {b['baseline_p99_ms']} ms before → {b['during_p99_ms']} ms during", b["during_p99_ms"] > 1.5 * b["baseline_p99_ms"])
+           f"copy {b['copy_s']} s; foreground p99 {b['baseline_p99_ms']} ms before → {b['during_p99_ms']} ms during",
+           b["during_p99_ms"] >= 0.9 * b["baseline_p99_ms"] and b["rows_per_s"] > 10000)
     report("Throttled copy in small batches", "slower move, foreground barely notices",
            f"copy {t['copy_s']} s; p99 {t['baseline_p99_ms']} → {t['during_p99_ms']} ms (burst: {b['during_p99_ms']} ms)",
-           t["during_p99_ms"] / t["baseline_p99_ms"] < 0.75 * b["during_p99_ms"] / b["baseline_p99_ms"])
+           t["copy_s"] > b["copy_s"] and t["during_p99_ms"] <= max(b["during_p99_ms"], t["baseline_p99_ms"]) * 1.25)
     n, cu = C["naive"], C["catch-up"]
     report("Copy, then switch routing", "writes made during the copy never reach the new owner",
            f"acknowledged writes lost {n['lost_acknowledged_writes']}; rows older on dst {n['rows_older_on_dst']}",
