@@ -1,15 +1,15 @@
 {
  "basic": {
-  "one_call_ms": 202,
+  "one_call_ms": 231,
   "without": {
    "backend_calls": 100,
-   "median_ms": 23892,
-   "max_ms": 25611
+   "median_ms": 26432,
+   "max_ms": 28036
   },
   "with": {
    "backend_calls": 1,
-   "median_ms": 210,
-   "max_ms": 211,
+   "median_ms": 240,
+   "max_ms": 241,
    "followers": 99
   }
  },
@@ -23,9 +23,9 @@
   "with_stale_fallback_failed": 0
  },
  "slow_leader": {
-  "unbounded_median_ms": 3239,
-  "bounded_median_ms": 506,
-  "bounded_max_ms": 3232
+  "unbounded_median_ms": 3264,
+  "bounded_median_ms": 512,
+  "bounded_max_ms": 3263
  },
  "bad_key": {
   "wrong_with_bad_key": 20,
